@@ -12,7 +12,13 @@ typedef struct {
     Color color;
 } Square;
 
+typedef struct {
+    Square board[BOARD_SIZE];
+} ChessBoard;
+
 int main(){
+
 
 return 0;
 }
+
