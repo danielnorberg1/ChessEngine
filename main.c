@@ -22,3 +22,11 @@ int main(){
 return 0;
 }
 
+// Initialize the chess board with a simplified starting position
+void init_board(ChessBoard *cb) {
+    // Clear the board
+    for (int i = 0; i < BOARD_SIZE; i++) {
+        cb->board[i].piece = EMPTY;
+        cb->board[i].color = NO_COLOR;
+    }
+
