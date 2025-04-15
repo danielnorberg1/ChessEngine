@@ -35,5 +35,10 @@ void init_board(ChessBoard *cb) {
     cb->board[i].piece = PAWN;
     cb->board[i].color = WHITE;
 }
+for (int i = 48; i < 56; i++) {  // Black pawns on the seventh rank
+    cb->board[i].piece = PAWN;
+    cb->board[i].color = BLACK;
+}
 
+// Additional piece setup (rooks, knights, bishops, queen, king) will be added here be added here
 }
