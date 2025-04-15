@@ -30,3 +30,10 @@ void init_board(ChessBoard *cb) {
         cb->board[i].color = NO_COLOR;
     }
 
+ // Set up pawns as an example
+ for (int i = 8; i < 16; i++) {  // White pawns on the second rank
+    cb->board[i].piece = PAWN;
+    cb->board[i].color = WHITE;
+}
+
+}
