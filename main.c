@@ -42,3 +42,21 @@ for (int i = 48; i < 56; i++) {  // Black pawns on the seventh rank
 
 // Additional piece setup (rooks, knights, bishops, queen, king) will be added here be added here
 }
+
+
+
+int evaluate(const ChessBoard *cb) {
+    int score = 0;
+    for (int i = 0; i < BOARD_SIZE; i++) {
+        switch (cb->board[i].piece) {
+            case PAWN:   score += 1; break;
+            case KNIGHT: score += 3; break;
+            case BISHOP: score += 3; break;
+            case ROOK:   score += 5; break;
+            case QUEEN:  score += 9; break;
+            case KING:   score += 0; break;  // King is invaluable; its safety is evaluated separately
+            default: break;
+        }
+    }
+    return score;
+}
