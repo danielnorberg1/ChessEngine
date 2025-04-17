@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #define BOARD_SIZE 64
+#define INF 10000
 
 typedef enum {KNIGHT, PAWN, KING, QUEEN, BISHOP, ROOK, EMPTY} Piece;
 
@@ -59,4 +60,33 @@ int evaluate(const ChessBoard *cb) {
         }
     }
     return score;
+}
+
+
+// A basic minimax function with alpha-beta pruning
+// Note: This is a simplified skeleton. A full implementation would iterate over all legal moves,
+// apply them to the board, call minimax recursively, and then undo the move.
+int minimax(ChessBoard *cb, int depth, int alpha, int beta, int maximizingPlayer) {
+    if (depth == 0) {
+        return evaluate(cb);
+    }
+    
+    if (maximizingPlayer) {
+        int maxEval = -INF;
+        // Loop over all moves (here you would use your move generator)
+        // For now, we simulate a single move branch.
+        int eval = minimax(cb, depth - 1, alpha, beta, 0);
+        if (eval > maxEval) maxEval = eval;
+        if (eval > alpha) alpha = eval;
+        // In a full implementation, break if beta <= alpha
+        return maxEval;
+    } else {
+        int minEval = INF;
+        // Loop over all moves for minimizing player
+        int eval = minimax(cb, depth - 1, alpha, beta, 1);
+        if (eval < minEval) minEval = eval;
+        if (eval < beta) beta = eval;
+        // In a full implementation, break if beta <= alpha
+        return minEval;
+    }
 }
