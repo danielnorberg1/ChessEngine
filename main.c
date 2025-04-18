@@ -90,3 +90,30 @@ int minimax(ChessBoard *cb, int depth, int alpha, int beta, int maximizingPlayer
         return minEval;
     }
 }
+
+// A basic minimax function with alpha-beta pruning
+// This is a simplified skeleton. A full implementation will later be made to iterate over all legal moves,
+int minimax(ChessBoard *cb, int depth, int alpha, int beta, int maximizingPlayer) {
+    if (depth == 0) {
+        return evaluate(cb);
+    }
+    
+    if (maximizingPlayer) {
+        int maxEval = -INF;
+        // Loop over all moves (Here the a move generator will be implemented
+        // For now, we simulate a single move branch.
+        int eval = minimax(cb, depth - 1, alpha, beta, 0);
+        if (eval > maxEval) maxEval = eval;
+        if (eval > alpha) alpha = eval;
+        // In a full implementation, break if beta <= alpha
+        return maxEval;
+    } else {
+        int minEval = INF;
+        // Loop over all moves for minimizing player
+        int eval = minimax(cb, depth - 1, alpha, beta, 1);
+        if (eval < minEval) minEval = eval;
+        if (eval < beta) beta = eval;
+        // In a full implementation, break if beta <= alpha
+        return minEval;
+    }
+}
