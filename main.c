@@ -8,7 +8,7 @@ typedef enum {KNIGHT, PAWN, KING, QUEEN, BISHOP, ROOK, EMPTY} Piece;
 
 typedef enum {NO_COLOR, WHITE, BLACK} Color;
 
-// Initializes Square struct
+// Initializes Square structure
 typedef struct {
     Piece piece;
     Color color;
