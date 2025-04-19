@@ -8,11 +8,14 @@ typedef enum {KNIGHT, PAWN, KING, QUEEN, BISHOP, ROOK, EMPTY} Piece;
 
 typedef enum {NO_COLOR, WHITE, BLACK} Color;
 
+// Initializes Square struct
 typedef struct {
     Piece piece;
     Color color;
 } Square;
 
+
+// Initializes ChessBoard struct
 typedef struct {
     Square board[BOARD_SIZE];
 } ChessBoard;
